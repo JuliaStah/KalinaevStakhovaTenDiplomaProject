@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мировая классика | Библиотека</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1e293b;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap');
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* ----- ШАПКА ----- */
+        header {
+            background: white;
+            box-shadow: 0 8px 30px rgba(0,20,40,0.06);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.9);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(145deg, #1e3c5c, #2b4c7c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-bottom-color: #d4a373;
+            color: #0f2c3f;
+        }
+
+        .profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #edf2f9;
+            padding: 0.5rem 1.5rem 0.5rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+        .profile-badge:hover {
+            border-color: #d4a373;
+            background: #e4eaf3;
+        }
+        .profile-badge i {
+            font-size: 1.6rem;
+            color: #2b4c7c;
+        }
+        .profile-badge span {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* ----- СИСТЕМА СТРАНИЦ ----- */
+        .page {
+            display: none;
+            animation: fade 0.3s;
+            padding: 2.5rem 0;
+        }
+
+        .page:target {
+            display: block;
+        }
+
+        body:not(:has(:target)) #home {
+            display: block;
+        }
+
+        @keyframes fade {
+            from { opacity: 0.3; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ----- ГЛАВНАЯ ----- */
+        .hero {
+            background: linear-gradient(135deg, #1e3c5c, #385e82), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1470&auto=format') center/cover;
+            background-blend-mode: overlay;
+            border-radius: 40px;
+            padding: 4rem 3.5rem;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #d4a373;
+            color: #1e293b;
+            font-weight: 700;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.2s;
+            border: 2px solid transparent;
+            margin-top: 1.8rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background: #e9c46a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4a373;
+            color: #1e293b;
+        }
+        .btn-outline:hover {
+            background: #d4a373;
+            color: white;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 10px 30px -12px #94a3b8;
+            transition: 0.25s;
+            border: 1px solid #e9eef3;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px -16px #1e3c5c;
+        }
+        .card i {
+            font-size: 2.8rem;
+            color: #d4a373;
+            margin-bottom: 1rem;
+        }
+
+        /* ----- КНИЖНЫЕ КАРТОЧКИ ----- */
+        .book-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 25px;
+            padding: 1.5rem;
+            width: 220px;
+            border: 1px solid #dde7f0;
+            box-shadow: 0 6px 16px #cddae9;
+            transition: 0.2s;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -8px #1e3c5c;
+        }
+        .book-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            background: #b6c9db;
+        }
+        .book-card h4 {
+            margin: 0.8rem 0 0.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .book-card p {
+            color: #4a5f73;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        .book-card .badge {
+            background: #e9edf2;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #1e3c5c;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* ----- СТРАНИЦА ВХОДА ----- */
+        .auth-container {
+            display: flex;
+            gap: 2rem;
+            align-items: stretch;
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 40px;
+            padding: 3rem;
+            flex: 1;
+            box-shadow: 0 25px 50px -12px #94a3b8;
+            border: 1px solid #e2e8f0;
+        }
+
+        .auth-card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #1e3c5c;
+        }
+
+        .auth-card h2 i {
+            color: #d4a373;
+            margin-right: 10px;
+        }
+
+        .auth-switch {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            background: #f1f5f9;
+            padding: 0.5rem;
+            border-radius: 60px;
+        }
+
+        .auth-switch button {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            background: transparent;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #475569;
+        }
+
+        .auth-switch button.active {
+            background: white;
+            color: #1e3c5c;
+            box-shadow: 0 4px 12px #cbd5e1;
+        }
+
+        .auth-form {
+            display: block;
+        }
+
+        .auth-form.hidden {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 60px;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #d4a373;
+            outline: none;
+            box-shadow: 0 0 0 4px #f1e5d3;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #64748b;
+        }
+
+        .auth-footer a {
+            color: #1e3c5c;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .benefits {
+            background: #f8fafc;
+            border-radius: 40px;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .benefits h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #1e3c5c;
+        }
+
+        .benefits ul {
+            list-style: none;
+        }
+
+        .benefits li {
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .benefits i {
+            color: #d4a373;
+            font-size: 2rem;
+            width: 40px;
+        }
+
+        footer {
+            background: #132b3f;
+            color: #acc3d9;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin: 2.5rem 0 1.5rem;
+            border-left: 10px solid #d4a373;
+            padding-left: 1.5rem;
+        }
+
+        /* Стили для вкладок */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #d4a373;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Стили для подстраниц */
+        .subpage-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .subpage-tab {
+            background: #e9eef3;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .subpage-tab.active {
+            background: #d4a373;
+            color: white;
+        }
+
+        .subpage-content {
+            display: none;
+        }
+
+        .subpage-content.active {
+            display: block;
+        }
+
+        /* Стили для дополнительных страниц */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px -12px #94a3b8;
+        }
+
+        .info-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1e3c5c;
+        }
+
+        .info-card p {
+            color: #4a5f73;
+            line-height: 1.6;
+        }
+
+        .event-list {
+            list-style: none;
+        }
+
+        .event-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .event-list li i {
+            color: #d4a373;
+            font-size: 1.5rem;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .price-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #1e3c5c;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav-bar">
+        <div class="logo">
+            <h2><i class="fas fa-book-open" style="color:#d4a373;"></i> Мировая классика</h2>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Главная</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#services">Услуги</a>
+            <a href="#events">События</a>
+            <a href="#about">О нас</a>
+            <a href="#profile">Вход</a>
+            <div class="profile-badge" onclick="window.location.href='#profile';">
+                <i class="fas fa-user-circle"></i>
+                <span>Войти</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Главная страница -->
+    <section id="home" class="page">
+        <div class="hero">
+            <h1>Великие произведения мировой литературы</h1>
+            <p style="font-size: 1.3rem; max-width: 600px;">От Пушкина до Хемингуэя — вся классика в одном месте</p>
+            <a href="#profile" class="btn">Войти в библиотеку</a>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('russian')">Русская классика</button>
+            <button class="tab-btn" onclick="showTab('foreign')">Зарубежная классика</button>
+        </div>
+
+        <!-- Вкладка Русская классика -->
+        <div id="russian-tab" class="tab-content active">
+            <h2 class="section-title">Шедевры русской литературы</h2>
+            <div class="book-row">
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Преступление и наказание">
+                    <h4>Преступление и наказание</h4>
+                    <p>Фёдор Достоевский</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Война и мир">
+                    <h4>Война и мир</h4>
+                    <p>Лев Толстой</p>
+                    <span class="badge">роман-эпопея</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Мастер и Маргарита">
+                    <h4>Мастер и Маргарита</h4>
+                    <p>Михаил Булгаков</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Евгений Онегин">
+                    <h4>Евгений Онегин</h4>
+                    <p>Александр Пушкин</p>
+                    <span class="badge">роман в стихах</span>
+                </div>
+            </div>
+
+            <div class="book-row">
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Анна Каренина">
+                    <h4>Анна Каренина</h4>
+                    <p>Лев Толстой</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Братья Карамазовы">
+                    <h4>Братья Карамазовы</h4>
+                    <p>Фёдор Достоевский</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Отцы и дети">
+                    <h4>Отцы и дети</h4>
+                    <p>Иван Тургенев</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Мёртвые души">
+                    <h4>Мёртвые души</h4>
+                    <p>Николай Гоголь</p>
+                    <span class="badge">поэма</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка Зарубежная классика -->
+        <div id="foreign-tab" class="tab-content">
+            <h2 class="section-title">Шедевры зарубежной литературы</h2>
+            <div class="book-row">
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Гамлет">
+                    <h4>Гамлет</h4>
+                    <p>Уильям Шекспир</p>
+                    <span class="badge">трагедия</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Фауст">
+                    <h4>Фауст</h4>
+                    <p>Иоганн Гёте</p>
+                    <span class="badge">трагедия</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Собор Парижской Богоматери">
+                    <h4>Собор Парижской Богоматери</h4>
+                    <p>Виктор Гюго</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Граф Монте-Кристо">
+                    <h4>Граф Монте-Кристо</h4>
+                    <p>Александр Дюма</p>
+                    <span class="badge">роман</span>
+                </div>
+            </div>
+
+            <div class="book-row">
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Гордость и предубеждение">
+                    <h4>Гордость и предубеждение</h4>
+                    <p>Джейн Остин</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Джейн Эйр">
+                    <h4>Джейн Эйр</h4>
+                    <p>Шарлотта Бронте</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Портрет Дориана Грея">
+                    <h4>Портрет Дориана Грея</h4>
+                    <p>Оскар Уайльд</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="1984">
+                    <h4>1984</h4>
+                    <p>Джордж Оруэлл</p>
+                    <span class="badge">антиутопия</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог с подстраницами -->
+    <section id="catalog" class="page">
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">Каталог</h1>
+
+        <div class="subpage-tabs">
+            <button class="subpage-tab active" onclick="showSubPage('catalog', 'authors')">По авторам</button>
+            <button class="subpage-tab" onclick="showSubPage('catalog', 'genres')">По жанрам</button>
+            <button class="subpage-tab" onclick="showSubPage('catalog', 'periods')">По периодам</button>
+            <button class="subpage-tab" onclick="showSubPage('catalog', 'new')">Новинки</button>
+        </div>
+
+        <!-- По авторам -->
+        <div id="catalog-authors" class="subpage-content active">
+            <h2 class="section-title">Русские писатели</h2>
+            <div class="card-grid">
+                <div class="card"><i class="fas fa-crown"></i><h3>Фёдор Достоевский</h3><p>5 романов</p></div>
+                <div class="card"><i class="fas fa-feather"></i><h3>Лев Толстой</h3><p>4 романа</p></div>
+                <div class="card"><i class="fas fa-mask"></i><h3>Антон Чехов</h3><p>12 рассказов</p></div>
+                <div class="card"><i class="fas fa-scroll"></i><h3>Александр Пушкин</h3><p>8 произведений</p></div>
+            </div>
+
+            <h2 class="section-title">Зарубежные писатели</h2>
+            <div class="card-grid">
+                <div class="card"><i class="fas fa-globe"></i><h3>Уильям Шекспир</h3><p>10 пьес</p></div>
+                <div class="card"><i class="fas fa-dragon"></i><h3>Виктор Гюго</h3><p>6 романов</p></div>
+                <div class="card"><i class="fas fa-robot"></i><h3>Джордж Оруэлл</h3><p>3 романа</p></div>
+                <div class="card"><i class="fas fa-heart"></i><h3>Джейн Остин</h3><p>6 романов</p></div>
+            </div>
+        </div>
+
+        <!-- По жанрам -->
+        <div id="catalog-genres" class="subpage-content">
+            <h2 class="section-title">Жанры литературы</h2>
+            <div class="card-grid">
+                <div class="card"><i class="fas fa-book"></i><h3>Романы</h3><p>245 произведений</p></div>
+                <div class="card"><i class="fas fa-mask"></i><h3>Драма</h3><p>89 произведений</p></div>
+                <div class="card"><i class="fas fa-feather"></i><h3>Поэзия</h3><p>156 произведений</p></div>
+                <div class="card"><i class="fas fa-scroll"></i><h3>Рассказы</h3><p>203 произведения</p></div>
+            </div>
+        </div>
+
+        <!-- По периодам -->
+        <div id="catalog-periods" class="subpage-content">
+            <h2 class="section-title">Литературные эпохи</h2>
+            <div class="card-grid">
+                <div class="card"><i class="fas fa-crown"></i><h3>Античность</h3><p>34 произведения</p></div>
+                <div class="card"><i class="fas fa-church"></i><h3>Средневековье</h3><p>28 произведений</p></div>
+                <div class="card"><i class="fas fa-feather"></i><h3>Возрождение</h3><p>42 произведения</p></div>
+                <div class="card"><i class="fas fa-lightbulb"></i><h3>Просвещение</h3><p>56 произведений</p></div>
+            </div>
+        </div>
+
+        <!-- Новинки -->
+        <div id="catalog-new" class="subpage-content">
+            <h2 class="section-title">Новые поступления</h2>
+            <div class="book-row">
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Книга">
+                    <h4>Идиот</h4>
+                    <p>Фёдор Достоевский</p>
+                    <span class="badge">новинка</span>
+                </div>
+                <div class="book-card">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Книга">
+                    <h4>Король Лир</h4>
+                    <p>Уильям Шекспир</p>
+                    <span class="badge">новинка</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги с подстраницами -->
+    <section id="services" class="page">
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">Услуги</h1>
+
+        <div class="subpage-tabs">
+            <button class="subpage-tab active" onclick="showSubPage('services', 'main')">Основные услуги</button>
+            <button class="subpage-tab" onclick="showSubPage('services', 'electronic')">Электронные</button>
+            <button class="subpage-tab" onclick="showSubPage('services', 'events')">Мероприятия</button>
+            <button class="subpage-tab" onclick="showSubPage('services', 'prices')">Цены</button>
+        </div>
+
+        <!-- Основные услуги -->
+        <div id="services-main" class="subpage-content active">
+            <h2 class="section-title">Что мы предлагаем</h2>
+            <div class="card-grid">
+                <div class="card"><i class="fas fa-book-reader"></i><h3>Читальный зал</h3><p>Доступ к редким изданиям XIX века</p></div>
+                <div class="card"><i class="fas fa-archive"></i><h3>Архив</h3><p>Старинные рукописи и первые издания</p></div>
+                <div class="card"><i class="fas fa-microphone"></i><h3>Лекторий</h3><p>Встречи с литературоведами</p></div>
+                <div class="card"><i class="fas fa-users"></i><h3>Книжный клуб</h3><p>Обсуждение прочитанного</p></div>
+            </div>
+        </div>
+
+        <!-- Электронные услуги -->
+        <div id="services-electronic" class="subpage-content">
+            <h2 class="section-title">Электронная библиотека</h2>
+            <div class="card-grid">
+                <div class="card"><i class="fas fa-laptop"></i><h3>PDF-библиотека</h3><p>1000+ книг в формате PDF</p></div>
+                <div class="card"><i class="fas fa-headphones"></i><h3>Аудиокниги</h3><p>Классика в профессиональной озвучке</p></div>
+                <div class="card"><i class="fas fa-mobile-alt"></i><h3>Мобильное приложение</h3><p>Читайте где угодно</p></div>
+            </div>
+        </div>
+
+        <!-- Мероприятия -->
+        <div id="services-events" class="subpage-content">
+            <h2 class="section-title">Ближайшие мероприятия</h2>
+            <ul class="event-list">
+                <li><i class="fas fa-calendar"></i> 15 марта - Лекция "Толстой и современность"</li>
+                <li><i class="fas fa-calendar"></i> 22 марта - Круглый стол по творчеству Достоевского</li>
+                <li><i class="fas fa-calendar"></i> 5 апреля - Вечер поэзии Серебряного века</li>
+            </ul>
+        </div>
+
+        <!-- Цены -->
+        <div id="services-prices" class="subpage-content">
+            <h2 class="section-title">Тарифы</h2>
+            <table class="price-table">
+                <tr><td>Базовый (читальный зал)</td><td class="price">300 руб/мес</td></tr>
+                <tr><td>Электронный (доступ к аудиокнигам)</td><td class="price">500 руб/мес</td></tr>
+                <tr><td>Премиум (все услуги)</td><td class="price">1000 руб/мес</td></tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Новая страница: События -->
+    <section id="events" class="page">
+        <h1 style="font-size: 3rem; margin-bottom: 2rem;">События</h1>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Лекции</h3>
+                <ul class="event-list">
+                    <li><i class="fas fa-calendar"></i> 10 марта - "Тайны романов Достоевского"</li>
+                    <li><i class="fas fa-calendar"></i> 17 марта - "Шекспир: загадки жизни и творчества"</li>
+                    <li><i class="fas fa-calendar"></i> 24 марта - "Поэзия Пушкина"</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Выставки</h3>
+                <ul class="event-list">
+                    <li><i class="fas fa-palette"></i> "Иллюстрации к Войне и миру"</li>
+                    <li><i class="fas fa-palette"></i> "Рукописи Льва Толстого"</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новая страница: О нас -->
+    <section id="about" class="page">
+        <h1 style="font-size: 3rem; margin-bottom: 2rem;">О библиотеке</h1>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>История</h3>
+                <p>Библиотека мировой классики основана в 1990 году. Сегодня это одно из крупнейших собраний классической литературы в стране.</p>
+                <p>Наша миссия - сделать великие произведения доступными для всех.</p>
+            </div>
+            <div class="info-card">
+                <h3>Контакты</h3>
+                <ul class="event-list">
+                    <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Классиков, 1</li>
+                    <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
+                    <li><i class="fas fa-envelope"></i> info@classiclib.ru</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница входа -->
+    <section id="profile" class="page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2><i class="fas fa-user-lock"></i> Вход в библиотеку</h2>
+
+                <div class="auth-switch">
+                    <button id="loginTab" class="active" onclick="showLogin()">Вход</button>
+                    <button id="registerTab" onclick="showRegister()">Регистрация</button>
+                </div>
+
+                <div id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label>Email или номер читательского</label>
+                        <input type="text" placeholder="reader@mail.ru">
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    <button class="btn" style="width: 100%;">Войти</button>
+                    <div class="auth-footer">
+                        <a href="#">Забыли пароль?</a>
+                    </div>
+                </div>
+
+                <div id="registerForm" class="auth-form hidden">
+                    <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input type="text" placeholder="Иван Петров">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="ivan@mail.ru">
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="минимум 8 символов">
+                    </div>
+                    <button class="btn" style="width: 100%;">Зарегистрироваться</button>
+                </div>
+            </div>
+
+            <div class="benefits">
+                <h3>Для читателей мировой классики</h3>
+                <ul>
+                    <li><i class="fas fa-book"></i> Более 1000 произведений</li>
+                    <li><i class="fas fa-feather"></i> Русская и зарубежная классика</li>
+                    <li><i class="fas fa-comment"></i> Лекции о литературе</li>
+                    <li><i class="fas fa-star"></i> Рекомендации по авторам</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">Рекомендуем к прочтению</h2>
+        <div class="book-row">
+            <div class="book-card">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Преступление и наказание">
+                <h4>Преступление и наказание</h4>
+                <p>Фёдор Достоевский</p>
+            </div>
+            <div class="book-card">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Гамлет">
+                <h4>Гамлет</h4>
+                <p>Уильям Шекспир</p>
+            </div>
+            <div class="book-card">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="1984">
+                <h4>1984</h4>
+                <p>Джордж Оруэлл</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container" style="text-align: center;">
+        <p>© 2025 Библиотека мировой классики · Все произведения в открытом доступе</p>
+        <p style="margin-top: 1rem;">Пушкин · Толстой · Достоевский · Шекспир · Гюго · Оруэлл · Хемингуэй</p>
+    </div>
+</footer>
+
+<script>
+    // Навигация по основным страницам
+    window.addEventListener('hashchange', updateActive);
+    window.addEventListener('load', () => {
+        if (!window.location.hash) window.location.hash = '#home';
+        updateActive();
+    });
+
+    function updateActive() {
+        const hash = window.location.hash || '#home';
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === hash) link.classList.add('active');
+        });
+    }
+
+    // Вкладки на главной (русская/зарубежная)
+    function showTab(tab) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        if (tab === 'russian') {
+            document.getElementById('russian-tab').classList.add('active');
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        } else {
+            document.getElementById('foreign-tab').classList.add('active');
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        }
+    }
+
+    // Подстраницы для Каталога и Услуг
+    function showSubPage(page, subpage) {
+        // Скрываем все подстраницы для данной страницы
+        const parentSection = document.getElementById(page);
+        parentSection.querySelectorAll('.subpage-content').forEach(content => {
+            content.classList.remove('active');
+        });
+
+        // Убираем активный класс у всех кнопок подстраниц
+        parentSection.querySelectorAll('.subpage-tab').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Показываем нужную подстраницу
+        document.getElementById(`${page}-${subpage}`).classList.add('active');
+
+        // Активируем соответствующую кнопку
+        event.target.classList.add('active');
+    }
+
+    // Формы входа/регистрации
+    function showLogin() {
+        document.getElementById('loginForm').classList.remove('hidden');
+        document.getElementById('registerForm').classList.add('hidden');
+        document.getElementById('loginTab').classList.add('active');
+        document.getElementById('registerTab').classList.remove('active');
+    }
+
+    function showRegister() {
+        document.getElementById('registerForm').classList.remove('hidden');
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('registerTab').classList.add('active');
+        document.getElementById('loginTab').classList.remove('active');
+    }
+</script>
+</body>
+</html>
