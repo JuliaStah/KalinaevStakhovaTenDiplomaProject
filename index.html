@@ -166,6 +166,13 @@
             color: white;
         }
 
+        .btn-small {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -207,6 +214,7 @@
             border: 1px solid #dde7f0;
             box-shadow: 0 6px 16px #cddae9;
             transition: 0.2s;
+            cursor: pointer;
         }
         .book-card:hover {
             transform: translateY(-5px);
@@ -237,6 +245,114 @@
             color: #1e3c5c;
             font-weight: 600;
             display: inline-block;
+        }
+
+        /* ----- СТРАНИЦА КНИГИ ----- */
+        .book-page {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .book-header {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 40px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px #94a3b8;
+        }
+
+        .book-cover-large {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 20px 30px -10px #1e293b;
+        }
+
+        .book-info-large {
+            flex: 1;
+        }
+
+        .book-info-large h1 {
+            font-size: 3rem;
+            color: #1e3c5c;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-info-large .author {
+            font-size: 1.8rem;
+            color: #d4a373;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .book-meta {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem 0;
+            border-top: 2px solid #e2e8f0;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-item .label {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .meta-item .value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e3c5c;
+        }
+
+        .book-description {
+            line-height: 1.8;
+            color: #334155;
+            margin: 2rem 0;
+        }
+
+        .book-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .review-section {
+            background: white;
+            border-radius: 40px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .reviewer {
+            font-weight: 700;
+            color: #1e3c5c;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            color: #475569;
+        }
+
+        .rating {
+            color: #d4a373;
+            margin-bottom: 0.5rem;
         }
 
         /* ----- СТРАНИЦА ВХОДА ----- */
@@ -516,6 +632,22 @@
             font-weight: 700;
             color: #1e3c5c;
         }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #1e3c5c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+
+        .back-link:hover {
+            color: #d4a373;
+        }
     </style>
 </head>
 <body>
@@ -557,25 +689,25 @@
         <div id="russian-tab" class="tab-content active">
             <h2 class="section-title">Шедевры русской литературы</h2>
             <div class="book-row">
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-prestuplenie'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Преступление и наказание">
                     <h4>Преступление и наказание</h4>
                     <p>Фёдор Достоевский</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-warandpeace'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Война и мир">
                     <h4>Война и мир</h4>
                     <p>Лев Толстой</p>
                     <span class="badge">роман-эпопея</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-master'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Мастер и Маргарита">
                     <h4>Мастер и Маргарита</h4>
                     <p>Михаил Булгаков</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-onegin'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Евгений Онегин">
                     <h4>Евгений Онегин</h4>
                     <p>Александр Пушкин</p>
@@ -584,25 +716,25 @@
             </div>
 
             <div class="book-row">
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-anna'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Анна Каренина">
                     <h4>Анна Каренина</h4>
                     <p>Лев Толстой</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-karamasovy'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Братья Карамазовы">
                     <h4>Братья Карамазовы</h4>
                     <p>Фёдор Достоевский</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-fathers'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Отцы и дети">
                     <h4>Отцы и дети</h4>
                     <p>Иван Тургенев</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-deadsouls'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Мёртвые души">
                     <h4>Мёртвые души</h4>
                     <p>Николай Гоголь</p>
@@ -615,25 +747,25 @@
         <div id="foreign-tab" class="tab-content">
             <h2 class="section-title">Шедевры зарубежной литературы</h2>
             <div class="book-row">
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-hamlet'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Гамлет">
                     <h4>Гамлет</h4>
                     <p>Уильям Шекспир</p>
                     <span class="badge">трагедия</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-faust'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Фауст">
                     <h4>Фауст</h4>
                     <p>Иоганн Гёте</p>
                     <span class="badge">трагедия</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-notredame'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Собор Парижской Богоматери">
                     <h4>Собор Парижской Богоматери</h4>
                     <p>Виктор Гюго</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-montecristo'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Граф Монте-Кристо">
                     <h4>Граф Монте-Кристо</h4>
                     <p>Александр Дюма</p>
@@ -642,29 +774,56 @@
             </div>
 
             <div class="book-row">
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-pride'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Гордость и предубеждение">
                     <h4>Гордость и предубеждение</h4>
                     <p>Джейн Остин</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-jane'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Джейн Эйр">
                     <h4>Джейн Эйр</h4>
                     <p>Шарлотта Бронте</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-dorian'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Портрет Дориана Грея">
                     <h4>Портрет Дориана Грея</h4>
                     <p>Оскар Уайльд</p>
                     <span class="badge">роман</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-1984'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="1984">
                     <h4>1984</h4>
                     <p>Джордж Оруэлл</p>
                     <span class="badge">антиутопия</span>
+                </div>
+            </div>
+
+            <div class="book-row">
+                <div class="book-card" onclick="window.location.href='#book-oldman'">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Старик и море">
+                    <h4>Старик и море</h4>
+                    <p>Эрнест Хемингуэй</p>
+                    <span class="badge">повесть</span>
+                </div>
+                <div class="book-card" onclick="window.location.href='#book-threecomrades'">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Три товарища">
+                    <h4>Три товарища</h4>
+                    <p>Эрих Мария Ремарк</p>
+                    <span class="badge">роман</span>
+                </div>
+                <div class="book-card" onclick="window.location.href='#book-sherlock'">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Приключения Шерлока Холмса">
+                    <h4>Приключения Шерлока Холмса</h4>
+                    <p>Артур Конан Дойл</p>
+                    <span class="badge">детектив</span>
+                </div>
+                <div class="book-card" onclick="window.location.href='#book-donquixote'">
+                    <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Дон Кихот">
+                    <h4>Дон Кихот</h4>
+                    <p>Мигель де Сервантес</p>
+                    <span class="badge">роман</span>
                 </div>
             </div>
         </div>
@@ -726,13 +885,13 @@
         <div id="catalog-new" class="subpage-content">
             <h2 class="section-title">Новые поступления</h2>
             <div class="book-row">
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-idiot'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Книга">
                     <h4>Идиот</h4>
                     <p>Фёдор Достоевский</p>
                     <span class="badge">новинка</span>
                 </div>
-                <div class="book-card">
+                <div class="book-card" onclick="window.location.href='#book-kinglear'">
                     <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Книга">
                     <h4>Король Лир</h4>
                     <p>Уильям Шекспир</p>
@@ -795,7 +954,7 @@
         </div>
     </section>
 
-    <!-- Новая страница: События -->
+    <!-- Страница событий -->
     <section id="events" class="page">
         <h1 style="font-size: 3rem; margin-bottom: 2rem;">События</h1>
 
@@ -818,7 +977,7 @@
         </div>
     </section>
 
-    <!-- Новая страница: О нас -->
+    <!-- Страница о нас -->
     <section id="about" class="page">
         <h1 style="font-size: 3rem; margin-bottom: 2rem;">О библиотеке</h1>
 
@@ -835,6 +994,609 @@
                     <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
                     <li><i class="fas fa-envelope"></i> info@classiclib.ru</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== СТРАНИЦЫ КНИГ (ВСЕ 20 ШТУК) ========== -->
+    <!-- Преступление и наказание -->
+    <section id="book-prestuplenie" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Преступление и наказание" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Преступление и наказание</h1>
+                    <div class="author">Фёдор Достоевский</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1866</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">672</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Преступление и наказание» — одно из самых известных произведений Фёдора Михайловича Достоевского. Роман повествует о бывшем студенте Родионе Раскольниковы, который разрабатывает и осуществляет план убийства старухи-процентщицы. Произведение глубоко исследует темы морали, справедливости и искупления через психологический портрет главного героя.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+            <div class="review-section">
+                <h3>Отзывы читателей</h3>
+                <div class="review"><div class="reviewer">Анна С.</div><div class="rating">★★★★★</div><div class="review-text">Гениальное произведение!</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Война и мир -->
+    <section id="book-warandpeace" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Война и мир" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Война и мир</h1>
+                    <div class="author">Лев Толстой</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1869</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">1808</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман-эпопея</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.9 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Война и мир» — роман-эпопея Льва Николаевича Толстого, описывающий русское общество в эпоху войн против Наполеона в 1805-1812 годах. Эпическое повествование переплетает судьбы частных лиц и исторические события.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Мастер и Маргарита -->
+    <section id="book-master" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Мастер и Маргарита" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Мастер и Маргарита</h1>
+                    <div class="author">Михаил Булгаков</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1967</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">480</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.9 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Мастер и Маргарита» — роман Михаила Афанасьевича Булгакова, одно из самых загадочных и мистических произведений русской литературы XX века.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Евгений Онегин -->
+    <section id="book-onegin" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Евгений Онегин" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Евгений Онегин</h1>
+                    <div class="author">Александр Пушкин</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1833</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">224</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман в стихах</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Евгений Онегин» — роман в стихах Александра Сергеевича Пушкина, одно из самых значительных произведений русской литературы.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Анна Каренина -->
+    <section id="book-anna" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Анна Каренина" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Анна Каренина</h1>
+                    <div class="author">Лев Толстой</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1878</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">864</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Анна Каренина» — роман Льва Толстого о трагической любви замужней дамы Анны Карениной и блестящего офицера Алексея Вронского.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Братья Карамазовы -->
+    <section id="book-karamasovy" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Братья Карамазовы" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Братья Карамазовы</h1>
+                    <div class="author">Фёдор Достоевский</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1880</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">1056</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.9 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Братья Карамазовы» — последний роман Достоевского, подводящий итог его творчеству. Центральная тема — борьба веры и неверия, добра и зла в душе человека.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отцы и дети -->
+    <section id="book-fathers" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Отцы и дети" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Отцы и дети</h1>
+                    <div class="author">Иван Тургенев</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1862</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">304</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.7 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Отцы и дети» — роман Ивана Тургенева о конфликте поколений, нигилисте Базарове и вечных ценностях.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Мёртвые души -->
+    <section id="book-deadsouls" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Мёртвые души" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Мёртвые души</h1>
+                    <div class="author">Николай Гоголь</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1842</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">352</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Поэма</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Мёртвые души» — произведение Николая Гоголя, в котором автор сатирически изображает помещичью Россию XIX века.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Гамлет -->
+    <section id="book-hamlet" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Гамлет" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Гамлет</h1>
+                    <div class="author">Уильям Шекспир</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1603</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">256</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Трагедия</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Гамлет» — одна из величайших трагедий Шекспира. История датского принца, который мстит за убийство своего отца.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Фауст -->
+    <section id="book-faust" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Фауст" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Фауст</h1>
+                    <div class="author">Иоганн Гёте</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1808</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">512</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Трагедия</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«Фауст» — философская драма Гёте, вершина немецкой литературы. Ученый Фауст заключает сделку с дьяволом.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Собор Парижской Богоматери -->
+    <section id="book-notredame" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Собор Парижской Богоматери" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Собор Парижской Богоматери</h1>
+                    <div class="author">Виктор Гюго</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1831</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">576</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.7 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Исторический роман Виктора Гюго о любви, предательстве и судьбе на фоне средневекового Парижа.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Граф Монте-Кристо -->
+    <section id="book-montecristo" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Граф Монте-Кристо" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Граф Монте-Кристо</h1>
+                    <div class="author">Александр Дюма</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1844</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">1312</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.9 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Приключенческий роман о мести, любви и справедливости. История Эдмона Дантеса, ставшего графом Монте-Кристо.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Гордость и предубеждение -->
+    <section id="book-pride" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Гордость и предубеждение" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Гордость и предубеждение</h1>
+                    <div class="author">Джейн Остин</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1813</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">416</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Знаменитый роман Джейн Остин о любви, гордости и предрассудках в английском обществе XIX века.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Джейн Эйр -->
+    <section id="book-jane" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Джейн Эйр" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Джейн Эйр</h1>
+                    <div class="author">Шарлотта Бронте</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1847</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">608</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>История сильной духом девушки, которая борется за любовь и независимость в викторианской Англии.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портрет Дориана Грея -->
+    <section id="book-dorian" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Портрет Дориана Грея" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Портрет Дориана Грея</h1>
+                    <div class="author">Оскар Уайльд</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1890</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">320</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Философский роман о красоте, морали и цене вечной молодости. Единственный роман Оскара Уайльда.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1984 -->
+    <section id="book-1984" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="1984" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>1984</h1>
+                    <div class="author">Джордж Оруэлл</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1949</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">328</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Антиутопия</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.9 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>«1984» — культовый роман-антиутопия Джорджа Оруэлла о тотальном контроле и борьбе за свободу.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+            <div class="review-section">
+                <h3>Отзывы читателей</h3>
+                <div class="review"><div class="reviewer">Алексей Н.</div><div class="rating">★★★★★</div><div class="review-text">Книга, которую должен прочитать каждый.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Старик и море -->
+    <section id="book-oldman" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Старик и море" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Старик и море</h1>
+                    <div class="author">Эрнест Хемингуэй</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1952</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">128</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Повесть</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.7 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Повесть о старом рыбаке и его борьбе с огромной рыбой. Символ стойкости и мужества человека.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Три товарища -->
+    <section id="book-threecomrades" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Три товарища" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Три товарища</h1>
+                    <div class="author">Эрих Мария Ремарк</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1936</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">480</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.9 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Роман о дружбе, любви и жизни в Германии после Первой мировой войны.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Приключения Шерлока Холмса -->
+    <section id="book-sherlock" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Приключения Шерлока Холмса" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Приключения Шерлока Холмса</h1>
+                    <div class="author">Артур Конан Дойл</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1892</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">384</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Детектив</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Сборник рассказов о знаменитом сыщике Шерлоке Холмсе и его друге докторе Ватсоне.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Дон Кихот -->
+    <section id="book-donquixote" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Дон Кихот" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Дон Кихот</h1>
+                    <div class="author">Мигель де Сервантес</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1605</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">1088</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Великий роман о благородном идальго, который вообразил себя рыцарем и отправился в приключения.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Идиот (новинка) -->
+    <section id="book-idiot" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Идиот" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Идиот</h1>
+                    <div class="author">Фёдор Достоевский</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1869</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">640</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Роман</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Роман о «положительно прекрасном человеке» — князе Мышкине, который сталкивается с жестокостью общества.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Король Лир (новинка) -->
+    <section id="book-kinglear" class="page">
+        <a href="#home" class="back-link"><i class="fas fa-arrow-left"></i> Вернуться на главную</a>
+        <div class="book-page">
+            <div class="book-header">
+                <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Король Лир" class="book-cover-large">
+                <div class="book-info-large">
+                    <h1>Король Лир</h1>
+                    <div class="author">Уильям Шекспир</div>
+                    <div class="book-meta">
+                        <div class="meta-item"><div class="label">Год</div><div class="value">1606</div></div>
+                        <div class="meta-item"><div class="label">Страниц</div><div class="value">288</div></div>
+                        <div class="meta-item"><div class="label">Жанр</div><div class="value">Трагедия</div></div>
+                        <div class="meta-item"><div class="label">Рейтинг</div><div class="value">4.8 ★</div></div>
+                    </div>
+                    <div class="book-description">
+                        <p>Трагедия о короле, который решил разделить королевство между дочерьми и столкнулся с предательством.</p>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn" onclick="window.location.href='#profile'">Читать</button>
+                        <button class="btn btn-outline">В избранное</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -895,17 +1657,17 @@
 
         <h2 class="section-title">Рекомендуем к прочтению</h2>
         <div class="book-row">
-            <div class="book-card">
+            <div class="book-card" onclick="window.location.href='#book-prestuplenie'">
                 <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Преступление и наказание">
                 <h4>Преступление и наказание</h4>
                 <p>Фёдор Достоевский</p>
             </div>
-            <div class="book-card">
+            <div class="book-card" onclick="window.location.href='#book-hamlet'">
                 <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="Гамлет">
                 <h4>Гамлет</h4>
                 <p>Уильям Шекспир</p>
             </div>
-            <div class="book-card">
+            <div class="book-card" onclick="window.location.href='#book-1984'">
                 <img src="https://obstanovka.club/uploads/posts/2023-03/thumbs/1677650622_obstanovka-club-p-temno-sinii-fon-oboi-krasivo-5.jpg" alt="1984">
                 <h4>1984</h4>
                 <p>Джордж Оруэлл</p>
@@ -953,21 +1715,14 @@
 
     // Подстраницы для Каталога и Услуг
     function showSubPage(page, subpage) {
-        // Скрываем все подстраницы для данной страницы
         const parentSection = document.getElementById(page);
         parentSection.querySelectorAll('.subpage-content').forEach(content => {
             content.classList.remove('active');
         });
-
-        // Убираем активный класс у всех кнопок подстраниц
         parentSection.querySelectorAll('.subpage-tab').forEach(btn => {
             btn.classList.remove('active');
         });
-
-        // Показываем нужную подстраницу
         document.getElementById(`${page}-${subpage}`).classList.add('active');
-
-        // Активируем соответствующую кнопку
         event.target.classList.add('active');
     }
 
