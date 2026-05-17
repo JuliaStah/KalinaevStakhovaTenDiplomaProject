@@ -1,0 +1,30 @@
+{
+  "node": {
+    "40770010cd88900cb218570c2709faa9f09ca56aae": {
+      "workers": {
+        "app/(main)/dashboard/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/actions/profile.js [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateProfile",
+          "filename": "actions/profile.js"
+        }
+      },
+      "filename": "actions/profile.js",
+      "exportedName": "updateProfile"
+    },
+    "4098a2028421902b54a33227145d13b8499f1cc48b": {
+      "workers": {
+        "app/(main)/dashboard/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/actions/profile.js [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "changePassword",
+          "filename": "actions/profile.js"
+        }
+      },
+      "filename": "actions/profile.js",
+      "exportedName": "changePassword"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "N4WeUwQgqn2VklQ/lc5Dh4xDlB6IUgphU0+/SAARm+k="
+}
